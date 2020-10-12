@@ -1,20 +1,21 @@
-const classActive = "active";
+const classActive = "active"
 
 function initTab() {
   // conteudo aparecendo por tabs
   //ao clicar na imagem, aparece o conteudo daquilo, e por default vem o primeiro conteudo
 
-  const tabMenu = document.querySelectorAll(".js-tabmenu li");
-  const tabContent = document.querySelectorAll(".js-tabcontent section");
+  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+  const tabContent = document.querySelectorAll('[data-tab="content"] section');
 
   if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add(classActive);
 
     function activeTab(index) {
+      const directionAnime = tabContent[index].dataset.anime;
       for (section of tabContent) {
         section.classList.remove(classActive);
       }
-      tabContent[index].classList.add(classActive);
+      tabContent[index].classList.add(classActive, directionAnime);
     }
 
     tabMenu.forEach((itemMenu, index) => {
@@ -24,7 +25,9 @@ function initTab() {
 }
 
 function initAccordion() {
-  const accordionList = document.querySelectorAll(".js-accordion dt");
+  const accordionList = document.querySelectorAll(
+    '[data-anime="accordion"] dt'
+  );
 
   if (accordionList.length) {
     accordionList[0].classList.add(classActive);
@@ -41,7 +44,9 @@ function initAccordion() {
 }
 
 function initScroll() {
-  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+  const linksInternos = document.querySelectorAll(
+    '[data-menu="suave"] a[href^="#"]'
+  );
 
   function scrollToSection(event) {
     event.preventDefault();
@@ -61,7 +66,7 @@ function initScroll() {
 }
 
 function initAnimaAoScroll() {
-  const sections = document.querySelectorAll(".js-scroll");
+  const sections = document.querySelectorAll('[data-anime="scroll"]');
 
   if (sections.length) {
     const metadeTela = window.innerHeight * 0.6;
