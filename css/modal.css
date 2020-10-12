@@ -22,7 +22,7 @@
 }
 
 .active .modal {
-  transition: modal 0.3ms forwards;
+  animation: modal 0.3s forwards;
 }
 
 .modal-container.active {
