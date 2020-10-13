@@ -40,12 +40,6 @@ body {
   background: #fb5;
 }
 
-.menu ul {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-}
-
 .menu li a {
   display: block;
   padding: 10px;
