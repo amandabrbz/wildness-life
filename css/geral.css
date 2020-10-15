@@ -320,3 +320,22 @@ body {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+
+.open::after,
+.closed::after {
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 1.3rem;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.open::after {
+  content: ' Open';
+  color: green;
+}
+
+.closed::after {
+  content: 'closed';
+  color: red;
+}
