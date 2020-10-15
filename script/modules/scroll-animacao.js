@@ -13,6 +13,8 @@ export default function initAnimaAoScroll() {
         const isSectionVisible = sectionTop - metadeTela < 0;
         if (isSectionVisible) {
           section.classList.add(classActive);
+        } else if (section.classList.contains(classActive)) {
+          section.classList.remove(classActive);
         }
       });
     }
