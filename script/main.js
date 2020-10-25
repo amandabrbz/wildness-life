@@ -7,6 +7,7 @@ import initToolTip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initFetchApi from "./modules/fetchAPI.js";
+import initBitcoin from "./modules/fetchBitcon.js";
 
 initTab();
 initScroll();
@@ -17,3 +18,4 @@ initToolTip();
 initDropdown();
 initFuncionamento();
 initFetchApi();
+initBitcoin()
