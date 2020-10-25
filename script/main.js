@@ -5,8 +5,8 @@ import initAccordion from "./modules/accordion.js";
 import initModal from "./modules/modal.js";
 import initToolTip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
-import initNumbers from "./modules/numbers.js";
 import initFuncionamento from "./modules/funcionamento.js";
+import initFetchApi from "./modules/fetchAPI.js";
 
 initTab();
 initScroll();
@@ -15,5 +15,5 @@ initAccordion();
 initModal();
 initToolTip();
 initDropdown();
-initNumbers();
 initFuncionamento();
+initFetchApi();
