@@ -1,0 +1,28 @@
+{
+  "name": "wildness-life",
+  "version": "0.0.1",
+  "description": "study",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandabrbz/wildness-life.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Amanda Barboza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amandabrbz/wildness-life/issues"
+  },
+  "homepage": "https://github.com/amandabrbz/wildness-life#readme",
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}

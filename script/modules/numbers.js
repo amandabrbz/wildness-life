@@ -1,4 +1,6 @@
 export default function initNumbers() {
+  let observer;
+
   function animaNumbers() {
     const numbers = document.querySelectorAll("[data-number]");
     numbers.forEach((number) => {
@@ -18,8 +20,7 @@ export default function initNumbers() {
     });
   }
 
-
-  //funcao observadora que nao deixa a contagem acontecer antes de estar ativo
+  // funcao observadora que nao deixa a contagem acontecer antes de estar ativo
   function handleMutation(mutation) {
     if (mutation[0].target.classList.contains("active")) {
       observer.disconnect();
@@ -28,7 +29,7 @@ export default function initNumbers() {
   }
 
   const obsTarget = document.querySelector(".numbers");
-  const observer = new MutationObserver(handleMutation);
+  observer = new MutationObserver(handleMutation);
 
   observer.observe(obsTarget, { attributes: true });
 }

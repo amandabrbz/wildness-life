@@ -1,5 +1,4 @@
 export default function initScroll() {
-  const classActive = "active"
   const linksInternos = document.querySelectorAll(
     '[data-menu="suave"] a[href^="#"]'
   );

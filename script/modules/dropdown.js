@@ -4,12 +4,6 @@ export default function initDropdown() {
   const dropdown = document.querySelectorAll("[data-dropdown]");
   const events = ["touchstart", "click"];
 
-  dropdown.forEach((menu) => {
-    events.forEach((userEvent) => {
-      menu.addEventListener(userEvent, handleClick);
-    });
-  });
-
   function handleClick(event) {
     event.preventDefault();
     this.classList.add("active");
@@ -18,4 +12,10 @@ export default function initDropdown() {
       this.classList.remove("active");
     });
   }
+
+  dropdown.forEach((menu) => {
+    events.forEach((userEvent) => {
+      menu.addEventListener(userEvent, handleClick);
+    });
+  });
 }
