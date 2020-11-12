@@ -1,34 +1,46 @@
-export default function initModal() {
-  const btnOpen = document.querySelector('[data-modal="open"]');
-  const btnClose = document.querySelector('[data-modal="close"]');
-  const container = document.querySelector('[data-modal="container"]');
+export default class Modal {
+  constructor(open, close, container) {
+    this.btnOpen = document.querySelector(open);
+    this.btnClose = document.querySelector(close);
+    this.container = document.querySelector(container);
 
-  function openModal(event) {
-    event.preventDefault();
-    container.classList.add("active");
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.closeFora = this.closeFora.bind(this);
+    this.eventKey = this.eventKey.bind(this);
   }
 
-  function closeModal(event) {
-    event.preventDefault();
-    container.classList.remove("active");
+  toggleModal() {
+    this.container.classList.toggle("active");
   }
 
-  function closeEsc(event) {
+  eventToggleModal(e) {
+    e.preventDefault();
+    this.toggleModal();
+  }
+
+  closeFora(event) {
+    if (event.target === this.container) {
+      this.eventToggleModal();
+    }
+  }
+
+  eventKey(event) {
     if (event.key === 27 || event.key === "Escape") {
-      closeModal(event);
+      this.eventToggleModal();
     }
   }
 
-  function closeFora(event) {
-    if (event.target === this) {
-      closeModal(event);
-    }
+  addModalEvents() {
+    this.btnOpen.addEventListener("click", this.eventToggleModal);
+    this.btnClose.addEventListener("click", this.eventToggleModal);
+    this.container.addEventListener("click", this.closeFora);
+    document.addEventListener("keydown", this.eventKey);
   }
 
-  if (btnOpen && btnClose && container) {
-    btnOpen.addEventListener("click", openModal);
-    btnClose.addEventListener("click", closeModal);
-    document.addEventListener("keydown", closeEsc);
-    container.addEventListener("click", closeFora);
+  init() {
+    if (this.btnOpen && this.btnClose && this.container) {
+      this.addModalEvents();
+    }
+    return this;
   }
 }
