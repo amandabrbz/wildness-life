@@ -20,13 +20,13 @@ export default class Modal {
 
   closeFora(event) {
     if (event.target === this.container) {
-      this.eventToggleModal();
+      this.eventToggleModal(event);
     }
   }
 
   eventKey(event) {
     if (event.key === 27 || event.key === "Escape") {
-      this.eventToggleModal();
+      this.eventToggleModal(event);
     }
   }
 
