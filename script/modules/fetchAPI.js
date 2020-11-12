@@ -1,4 +1,5 @@
-import initNumbers from "./numbers.js";
+import CountNumbers from "./numbers.js";
+
 
 export default function initFetchApi() {
   function createAnimal(animal) {
@@ -18,7 +19,8 @@ export default function initFetchApi() {
       animaisJson.forEach((animal) => {
         const divAnimal = createAnimal(animal);
         numbersGrid.appendChild(divAnimal);
-        initNumbers();
+        const animaNumeros = new CountNumbers("[data-number]", '.numbers', 'active');
+        animaNumeros.init();
       });
     } catch (error) {
       console.log(Error(error));
