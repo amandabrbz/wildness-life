@@ -27,7 +27,7 @@ export default class Scroll {
   }
 
   init() {
-    if (this.links.lenght) {
+    if (this.linksInternos.lenght) {
       this.addLinkEvent();
     }
     return this;
