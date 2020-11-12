@@ -1,19 +1,17 @@
 export default class Accordion {
   constructor(list) {
-    this.this.classActive = "active";
+    this.classActive = "active";
     this.accordionList = document.querySelectorAll(list);
   }
 
   toggleAccordion(item) {
-    this.classList.toggle(this.classActive);
-    this.nextElementSibling.classList.toggle(this.classActive);
+    item.classList.toggle(this.classActive);
+    item.nextElementSibling.classList.toggle(this.classActive);
   }
 
   addAccordionEvent() {
     this.accordionList.forEach((item) => {
-      item.addEventListener("click", () => {
-        toggleAccordion(item);
-      });
+      item.addEventListener('click', () => this.toggleAccordion(item));
     });
   }
 
@@ -22,5 +20,7 @@ export default class Accordion {
       this.toggleAccordion(this.accordionList[0]);
       this.addAccordionEvent();
     }
+
+    return this;
   }
 }
