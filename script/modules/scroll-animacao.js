@@ -1,22 +1,28 @@
-export default function initAnimaAoScroll() {
-  const classActive = "active";
-  const sections = document.querySelectorAll('[data-anime="scroll"]');
+export default class ScrollAnima {
+  constructor(sections) {
+    this.classActive = "active";
+    this.sections = document.querySelectorAll(sections);
+    this.metadeTela = window.innerHeight * 0.6;
 
-  function animaAoScroll() {
-    sections.forEach((section) => {
-      const metadeTela = window.innerHeight * 0.6;
-      const sectionTop = section.getBoundingClientRect().top - metadeTela;
-      const isSectionVisible = sectionTop - metadeTela < 0;
+    // funcoes de callback precisam de bind
+    this.animaAoScroll = this.animaAoScroll.bind(this);
+  }
+
+  animaAoScroll() {
+    this.sections.forEach((section) => {
+      const sectionTop = section.getBoundingClientRect().top - this.metadeTela;
+      const isSectionVisible = sectionTop - this.metadeTela < 0;
       if (isSectionVisible) {
-        section.classList.add(classActive);
-      } else if (section.classList.contains(classActive)) {
-        section.classList.remove(classActive);
+        section.classList.add(this.classActive);
+      } else if (section.classList.contains(this.classActive)) {
+        section.classList.remove(this.classActive);
       }
     });
   }
 
-  if (sections.length) {
-    sections[0].classList.add(classActive);
-    window.addEventListener("scroll", animaAoScroll);
+  init() {
+    this.animaAoScroll();
+    window.addEventListener("scroll", this.animaAoScroll);
+    return this;
   }
 }
