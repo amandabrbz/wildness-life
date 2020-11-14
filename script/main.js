@@ -4,7 +4,7 @@ import Accordion from "./modules/accordion.js";
 import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
 import Dropdown from "./modules/dropdown.js";
-import initFuncionamento from "./modules/funcionamento.js";
+import Funcionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetchAPI.js";
 import fetchBitcoins from "./modules/fetchBitcon.js";
 import ScrollAnima from "./modules/scroll-animacao.js";
@@ -38,7 +38,8 @@ dropdown.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
+const funcionamento = new Funcionamento("[data-week]", 'open', 'closed');
+funcionamento.init();
+
 fetchAnimais("./animaisapi.json", ".numbers-grid");
 fetchBitcoins("https://blockchain.info/ticker", ".btc-price");
-
-initFuncionamento();
