@@ -6,7 +6,7 @@ import Modal from "./modules/modal.js";
 import ToolTip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import initFuncionamento from "./modules/funcionamento.js";
-import initFetchApi from "./modules/fetchAPI.js";
+import fetchAnimais from "./modules/fetchAPI.js";
 import initBitcoin from "./modules/fetchBitcon.js";
 
 const scrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
@@ -25,8 +25,9 @@ modal.init();
 const tooltip = new ToolTip("[data-tooltip]");
 tooltip.init();
 
+fetchAnimais('./animaisapi.json', '.numbers-grid')
+
 initAnimaAoScroll();
 initDropdown();
 initFuncionamento();
-initFetchApi();
 initBitcoin();

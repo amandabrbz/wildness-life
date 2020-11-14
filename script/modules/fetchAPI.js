@@ -1,7 +1,7 @@
 import CountNumbers from "./numbers.js";
 
+export default function fecthAnimais(url, target) {
 
-export default function initFetchApi() {
   function createAnimal(animal) {
     const div = document.createElement("div");
     div.classList.add("number-animal");
@@ -9,23 +9,29 @@ export default function initFetchApi() {
     return div;
   }
 
-  async function fetchAnimais(url) {
+  const numbersGrid = document.querySelector(target);
+  function preencherAnimais(animal) {
+    const divAnimal = createAnimal(animal);
+    numbersGrid.appendChild(divAnimal);
+  }
+
+  function animaNumerosAnimais() {
+      const animaNumeros = new CountNumbers("[data-number]",".numbers", "active");
+      animaNumeros.init();
+  }
+
+  async function criarAnimais() {
     try {
       const animaisResponse = await fetch(url);
       const animaisJson = await animaisResponse.json();
 
-      const numbersGrid = document.querySelector(".numbers-grid");
+      animaisJson.forEach((animal) => preencherAnimais(animal));
+      animaNumerosAnimais();
 
-      animaisJson.forEach((animal) => {
-        const divAnimal = createAnimal(animal);
-        numbersGrid.appendChild(divAnimal);
-        const animaNumeros = new CountNumbers("[data-number]", '.numbers', 'active');
-        animaNumeros.init();
-      });
     } catch (error) {
       console.log(Error(error));
     }
   }
 
-  fetchAnimais("./animaisapi.json");
+  return criarAnimais();
 }
