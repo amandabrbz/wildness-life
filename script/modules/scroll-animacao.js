@@ -1,3 +1,5 @@
+import debounce from './debounce.js'
+
 export default class ScrollAnima {
   constructor(sections) {
     this.classActive = "active";
@@ -5,7 +7,7 @@ export default class ScrollAnima {
     this.metadeTela = window.innerHeight * 0.6;
 
     // funcoes de callback precisam de bind
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 20);
   }
 
   getDistance() {
@@ -13,7 +15,7 @@ export default class ScrollAnima {
       const offset = section.offsetTop;
       return {
         element: section,
-        offset: Math.floor(offset) - this.metadeTela,
+        offset: Math.floor(offset - this.metadeTela),
       };
     });
   }
@@ -29,7 +31,7 @@ export default class ScrollAnima {
   }
 
   init() {
-    if (this.sections.lenght) {
+    if (this.sections.length) {
       this.getDistance();
       this.checkDistance();
       window.addEventListener("scroll", this.checkDistance);
