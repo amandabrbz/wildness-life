@@ -8,6 +8,7 @@ import initFuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetchAPI.js";
 import fetchBitcoins from "./modules/fetchBitcon.js";
 import ScrollAnima from "./modules/scroll-animacao.js";
+import MenuMobile from "./modules/menu-mobile.js";
 
 const scrollSuave = new Scroll('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -18,7 +19,10 @@ accordion.init();
 const tab = new Tab('[data-tab="menu"] li', '[data-tab="content"] section');
 tab.init();
 
-const modal = new Modal('[data-modal="open"]','[data-modal="close"]','[data-modal="container"]'
+const modal = new Modal(
+  '[data-modal="open"]',
+  '[data-modal="close"]',
+  '[data-modal="container"]'
 );
 modal.init();
 
@@ -28,10 +32,13 @@ tooltip.init();
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-const dropdown = new Dropdown('[data-dropdown]', ["touchstart", "click"])
+const dropdown = new Dropdown("[data-dropdown]", ["touchstart", "click"]);
 dropdown.init();
 
-fetchAnimais('./animaisapi.json', '.numbers-grid')
-fetchBitcoins('https://blockchain.info/ticker', '.btc-price')
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
+
+fetchAnimais("./animaisapi.json", ".numbers-grid");
+fetchBitcoins("https://blockchain.info/ticker", ".btc-price");
 
 initFuncionamento();
